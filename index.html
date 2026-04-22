@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Recommended system</title>
+</head>
+<body>
+<nav class="navbar">
+    <div >
+    <h3>Book Recommendation System</h3>
+    </div>
+    <div>
+        <ul class="nav-options">
+           <a href="{{ url_for('index')}}" ><li>HOME</li></a>
+           <a href="{{ url_for('recommend')}}"><li>RECOMMEND</li></a>
+           <a href="#"><li>REPORT</li></a>
+        </ul>
+    </div>
+</nav>
+<section>
+    <h2>Here are the top 50  trending all time favorites</h2>
+    <div class="book50-container">
+        {%for i in range(book_name|length)%}
+        <div  class="book_card">
+            <img src="{{book_img[i]}}" ,alt = >
+            <p><span>Book Name: </span>{{book_name[i]}}</p>
+            <p><span>Book Author: </span>{{book_author[i]}}</p>
+            <p><span>Book Publisher: </span>{{book_publisher[i]}}</p>
+            <p><span>Book Rating: </span>{{book_rating[i]}}</p>
+        </div>
+        {%endfor%}
+        <div>
+</section>
+</body>
+</html>

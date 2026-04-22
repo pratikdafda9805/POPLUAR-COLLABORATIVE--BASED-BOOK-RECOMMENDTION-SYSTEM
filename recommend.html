@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}} ">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+<nav class="navbar">
+    <div >
+    <h3>Book Recommendation System</h3>
+    </div>
+    <div>
+        <ul class="nav-options">
+           <a href="{{ url_for('index')}}" ><li>HOME</li></a>
+           <a href="{{ url_for('recommend')}}"><li>RECOMMEND</li></a>
+           <a href="#"><li>REPORT</li></a>
+        </ul>
+    </div>
+</nav>
+<main class="recom-main">
+    <section>
+        <form class="recomn-form" action="/recommend_books" method="POST">
+            <div class="recomn-input" >
+                <label for="book_name">BOOK NAME</label>
+            <input class="user-input" type="text" name="book_name" id="" {{book_selected}} >
+            </div>
+
+            <label for="books">Choose a book:</label>
+<select id="books" name="books" size=>
+
+            {%for i in  range(books_option|length) %}
+             <option name="book_selected" value="{{books_option[i]}}">{{books_option[i]}}</option>
+                {%endfor%}
+</select>
+
+            <input class="submit"  type="submit" name="Submit" Submit>
+        </form>
+    </section>
+    <section>
+<!--    <h2>Here are the top 50  trending all time favorites</h2>-->
+    <div class="bookrecomn-container">
+        {%for i in range(book_name|length)%}
+        <div  class="book_card">
+            <img src="{{book_img[i]}}" ,alt = >
+            <p>{{book_name[i]}}</p>
+            <p><span>Book Author: </span>{{book_author[i]}}</p>
+            <p><span>Book Publisher: </span>{{book_publisher[i]}}</p>
+        </div>
+        {%endfor%}
+        <div>
+</section>
+</main>
+</body>
+</html>
